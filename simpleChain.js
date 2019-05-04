@@ -2,12 +2,17 @@
 /* Simpleblock - A simple example blockchain created in Node.js
 */
 
+// Initialize
+const SHA256 = require('crypto-js/sha256');
+
 // Block Model
 class Block {
-  construcotr(data) {
-    this.height = '';
-    this.timeStamp = '';
+  constructor(data) {
+    this.height = 0;
+    this.timeStamp = 0;
     this.data = data;
+    this.previousHash = '0x';
+    this.hash = '';
   }
 }
 
@@ -23,9 +28,18 @@ class Block {
 class Blockchain {
   constructor() {
     this.chain = [];
+    this.addBlock(this.createGenesisBlock());
+  }
+
+  createGenesisBlock() {
+    return new Block("First block in the chain - Genesis block");
   }
 
   addBlock(newBlock) {
+    if (this.chain.length > 0) {
+      newBlock.previousHash = this.chain[this.chain.length - 1].hash;
+    }
+    newBlock.hash = SHA256(JSON.stringify(newBlock)).toString();
     this.chain.push(newBlock);
   }
 }
