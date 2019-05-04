@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/waldrupm/SimpleChain/issues"
   },
-  "homepage": "https://github.com/waldrupm/SimpleChain#readme"
+  "homepage": "https://github.com/waldrupm/SimpleChain#readme",
+  "dependencies": {
+    "crypto-js": "3.1.9-1"
+  }
 }
