@@ -18,9 +18,9 @@ class Block {
 
 /* Blockchain Model
   Will have:
-    - createGenesisBlock()
-    - getLatestBlock()
-    - addBlock()
+    - createGenesisBlock() --DONE
+    - getLatestBlock() -- DONE
+    - addBlock() --DONE
     - getBlock()
     - validateBlock()
     - validateChain()
