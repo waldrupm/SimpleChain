@@ -31,6 +31,7 @@ class Blockchain {
     this.addBlock(this.createGenesisBlock());
   }
 
+  // Make first block if there are none
   createGenesisBlock() {
     return new Block("First block in the chain - Genesis block");
   }
@@ -39,6 +40,7 @@ class Blockchain {
     return this.chain[this.chain.length - 1];
   }
 
+  // Takes in new block and adds appropriate properties before hashing and storing
   addBlock(newBlock) {
     newBlock.height = this.chain.length;
     newBlock.timeStamp = new Date().getTime().toString().slice(0,-3);
